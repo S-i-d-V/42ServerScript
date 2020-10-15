@@ -4,6 +4,7 @@ FROM debian:buster
 COPY srcs/server_conf /tmp/
 COPY srcs/localhost.key /tmp/
 COPY srcs/localhost.crt /tmp/
+COPY srcs/wordpress.tar.gz /tmp/
 COPY srcs/script.sh ./
 
 #Lancement du script de SETUP.

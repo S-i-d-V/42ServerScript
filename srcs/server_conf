@@ -8,7 +8,7 @@ server {
 
 server{
     listen 443;
-    listen [::]:443 ipv6only=on;
+    listen [::]:443 ipv6only=on ssl;
 
     server_name localhost;
     ssl_certificate /etc/ssl/certs/localhost.crt;
