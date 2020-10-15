@@ -5,7 +5,7 @@ apt-get update
 apt-get install -y wget
 apt-get install -y nginx
 apt-get install -y mariadb-server
-apt-get install -y php-json php-mbstring
+apt-get install -y php-fpm php-mysql
 
 #Set-up Nginx + Certificat SSL
 mv /tmp/server_conf /etc/nginx/sites-available/
@@ -21,7 +21,8 @@ tar xfC var/www/localhost/wordpress-5.5.1-fr_FR.tar.gz var/www/localhost/ && rm 
 
 #Set-up PHPmyadmin
 wget https://files.phpmyadmin.net/phpMyAdmin/4.9.6/phpMyAdmin-4.9.6-english.tar.gz -P /var/www/localhost/
-tar xfC var/www/localhost/phpMyAdmin-4.9.6-english.tar.gz var/www/localhost/ && rm -rf /var/www/localhost/phpMyAdmin-4.9.6-english.tar.gz
+tar xfC /var/www/localhost/phpMyAdmin-4.9.6-english.tar.gz var/www/localhost/
+rm -rf /var/www/localhost/phpMyAdmin-4.9.6-english.tar.gz && mv /var/www/localhost/phpMyAdmin-4.9.6-english /var/www/localhost/phpMyAdmin
 
 #Set-up MySQL
 service mysql start
