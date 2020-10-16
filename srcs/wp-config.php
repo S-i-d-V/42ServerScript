@@ -1,3 +1,4 @@
+<?php
 /**
  * La configuration de base de votre installation WordPress.
  *
@@ -33,7 +34,7 @@ define( 'DB_PASSWORD', 'admin' );
 define( 'DB_HOST', 'localhost' );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
-define( 'DB_CHARSET', 'utf8' );
+define( 'DB_CHARSET', 'utf8mb4' );
 
 /**
  * Type de collation de la base de données.
@@ -52,14 +53,14 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'mettez une phrase unique ici' );
-define( 'SECURE_AUTH_KEY',  'mettez une phrase unique ici' );
-define( 'LOGGED_IN_KEY',    'mettez une phrase unique ici' );
-define( 'NONCE_KEY',        'mettez une phrase unique ici' );
-define( 'AUTH_SALT',        'mettez une phrase unique ici' );
-define( 'SECURE_AUTH_SALT', 'mettez une phrase unique ici' );
-define( 'LOGGED_IN_SALT',   'mettez une phrase unique ici' );
-define( 'NONCE_SALT',       'mettez une phrase unique ici' );
+define( 'AUTH_KEY',         '03}T8Mk-<<6AF-:7^ARzP]Luq5f!gQ+H/2vO2@R{rR;9*&9K}94dhDU2:qSmFzn/' );
+define( 'SECURE_AUTH_KEY',  'zho s<Fm]:hta0#L+.?9mU5yg1@+P!&*%$ORSUCu3ZnErq7RhK7ZE.u n,Q IU[7' );
+define( 'LOGGED_IN_KEY',    '7Eh.!Xv WcL2JK$b@_>a)cg.hAT!jWnL!O~r!%lv!FZ a767L_~7mcA3|pE9:U9g' );
+define( 'NONCE_KEY',        ')c54$[pk~0;A#_RcR7c%wn&;*psVpqY47F$jy@/9#.-tY%6<urr{pXKoP|_8A#W.' );
+define( 'AUTH_SALT',        '2437?t@rC_Kd!v#{m:Yuhn54y ?`x8@.BeCb u2O0<U9ItpAHmsw+,)Vq87LaOBH' );
+define( 'SECURE_AUTH_SALT', '`mckvyRIC+c-Hh@Urfa6)nBV/G{Fw,&1S{^ew_U<0=O8~KrUeF1#?SYhov 0E!*I' );
+define( 'LOGGED_IN_SALT',   'b^acG^of113wdCnPp?Y9(v?c6T{qy8{0|V )Mu|@&j0poy;UtT*t6b;onFh%})cl' );
+define( 'NONCE_SALT',       'S$&3CXXRepCB=fxkL;Q]ok4T1&f8?0`MHw+EL0E]K1`cRv2@CyoaKESYj^fiY^O>' );
 /**#@-*/
 
 /**

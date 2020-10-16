@@ -19,6 +19,7 @@ mkdir /var/www/localhost
 wget https://fr.wordpress.org/wordpress-5.5.1-fr_FR.tar.gz -P /var/www/localhost/
 tar xfC var/www/localhost/wordpress-5.5.1-fr_FR.tar.gz var/www/localhost/ && rm -rf /var/www/localhost/wordpress-5.5.1-fr_FR.tar.gz
 mv /tmp/wp-config.php /var/www/localhost/wordpress
+chown -R www-data /var/www/localhost
 
 #Set-up PHPmyadmin
 wget https://files.phpmyadmin.net/phpMyAdmin/4.9.6/phpMyAdmin-4.9.6-english.tar.gz -P /var/www/localhost/
