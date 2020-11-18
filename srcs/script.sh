@@ -8,7 +8,7 @@ apt-get install -y mariadb-server
 apt-get install -y php7.3 php7.3-fpm php7.3-mysql php7.3-mbstring
 
 #Set-up Nginx + Certificat SSL
-mv /tmp/server_conf /etc/nginx/sites-available/
+cp /tmp/server_conf /etc/nginx/sites-available/
 rm -rf /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
 ln -s /etc/nginx/sites-available/server_conf /etc/nginx/sites-enabled/
 mv /tmp/localhost.crt /etc/ssl/certs/
@@ -32,3 +32,12 @@ service mysql start
 mysql -u root -e "CREATE DATABASE localhost_db;"
 mysql -u root -e "GRANT ALL PRIVILEGES ON localhost_db.* TO 'localhost_admin'@'localhost' IDENTIFIED BY 'admin';"
 mysql -u root -e "FLUSH PRIVILEGES;"
+
+#Auto-index desactivable
+mv /tmp/index_on.sh /etc/nginx
+mv /tmp/index_off.sh /etc/nginx
+mkdir etc/nginx/index_alias
+mv /tmp/server_conf etc/nginx/index_alias
+mv /tmp/indexoff_conf etc/nginx/index_alias
+echo "alias index_on='sh /etc/nginx/index_on.sh'" >> ~/.bashrc
+echo "alias index_off='sh /etc/nginx/index_off.sh'" >> ~/.bashrc
