@@ -5,6 +5,7 @@ COPY srcs/server_conf /tmp/
 COPY srcs/indexoff_conf /tmp/
 COPY srcs/ssl/localhost.key /tmp/
 COPY srcs/ssl/localhost.crt /tmp/
+COPY srcs/wordpress-5.5.1-fr_FR.tar.gz /tmp/
 COPY srcs/wp-config.php /tmp/
 COPY srcs/config.inc.php /tmp/
 COPY srcs/script.sh ./
