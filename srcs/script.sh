@@ -4,11 +4,12 @@
 apt-get update
 apt-get install -y wget
 apt-get install -y nginx
+apt-get install -y systemd
 apt-get install -y mariadb-server
 apt-get install -y php7.3 php7.3-fpm php7.3-mysql php7.3-mbstring
 
 #Set-up Nginx + Certificat SSL
-cp /tmp/server_conf /etc/nginx/sites-available/
+mv /tmp/server_conf /etc/nginx/sites-available/
 rm -rf /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
 ln -s /etc/nginx/sites-available/server_conf /etc/nginx/sites-enabled/
 mv /tmp/localhost.crt /etc/ssl/certs/
@@ -16,8 +17,8 @@ mv /tmp/localhost.key /etc/ssl/private/
 
 #Set-up Wordpress
 mkdir /var/www/localhost
-wget https://fr.wordpress.org/wordpress-5.5.1-fr_FR.tar.gz -P /var/www/localhost/
-tar xfC var/www/localhost/wordpress-5.5.1-fr_FR.tar.gz var/www/localhost/ && rm -rf /var/www/localhost/wordpress-5.5.1-fr_FR.tar.gz
+mv /tmp/wordpress-5.5.1-fr_FR.tar.gz /var/www/localhost/
+tar xfC /var/www/localhost/wordpress-5.5.1-fr_FR.tar.gz var/www/localhost/ && rm -rf /var/www/localhost/wordpress-5.5.1-fr_FR.tar.gz
 mv /tmp/wp-config.php /var/www/localhost/wordpress
 chown -R www-data /var/www/localhost
 
@@ -32,12 +33,3 @@ service mysql start
 mysql -u root -e "CREATE DATABASE localhost_db;"
 mysql -u root -e "GRANT ALL PRIVILEGES ON localhost_db.* TO 'localhost_admin'@'localhost' IDENTIFIED BY 'admin';"
 mysql -u root -e "FLUSH PRIVILEGES;"
-
-#Auto-index desactivable
-mv /tmp/index_on.sh /etc/nginx
-mv /tmp/index_off.sh /etc/nginx
-mkdir etc/nginx/index_alias
-mv /tmp/server_conf etc/nginx/index_alias
-mv /tmp/indexoff_conf etc/nginx/index_alias
-echo "alias index_on='sh /etc/nginx/index_on.sh'" >> ~/.bashrc
-echo "alias index_off='sh /etc/nginx/index_off.sh'" >> ~/.bashrc
